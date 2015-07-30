@@ -1,0 +1,23 @@
+<% if notice%>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @site.components.order(:position).each do |component| %>
+      
+      <%= render partial: "#{component.type.tableize.singularize}", locals: {component: component} %>
+      
+    <% end %>
+  </tbody>
+</table>
+
+<br/>
+
+<%= link_to 'Back', catalog_index_path %>

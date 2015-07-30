@@ -1,0 +1,12 @@
+<% if notice%>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+<h1>Sites Catalog</h1>
+
+<% @sites.each do |site| %>
+    <div class="entry">
+    	<h3><%= link_to site_url(site).to_s, site %></h3>
+    	<p><%= site.id %></p>
+    </div>
+<% end %>

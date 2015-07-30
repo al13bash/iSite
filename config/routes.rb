@@ -1,4 +1,20 @@
 Rails.application.routes.draw do
+  resources :components do
+    member do
+      post 'edit' => 'components#update', as: 'edit_component'
+    end
+    
+    collection do    
+      post 'new' => 'components#create', as: 'new_components'
+    end
+  end
+
+  get 'catalog/index'
+
+  root to: 'catalog#index', as: 'catalog'
+  
+  resources :sites
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

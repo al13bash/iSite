@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ISite</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <title>iSite</title>
+  <%= stylesheet_link_tag    "application", media: "all",
+    "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-
-<%= yield %>
-
+<body class="<%= controller.controller_name %>">
+  <div id="banner">
+    <%= @page_title || "iSite" %>
+  </div>
+  <div id="columns">
+    <div id="side">
+      <ul>
+        <li><%= link_to 'Home', catalog_path %></li><br/>
+        <li><%= link_to 'Sites', sites_path %></li>
+        <li><%= link_to 'Components', components_path %></li>
+      </ul>
+    </div>
+    <div id="main">
+      <%= yield %>
+    </div>
+  </div>
 </body>
 </html>

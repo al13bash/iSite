@@ -1,0 +1,2 @@
+class RatingComponent < Component
+end
