@@ -1,12 +1,24 @@
-<% if notice%>
-<p id="notice"><%= notice %></p>
-<% end %>
-
-<h1>Sites Catalog</h1>
-
-<% @sites.each do |site| %>
-    <div class="entry">
-    	<h3><%= link_to site_url(site).to_s, site %></h3>
-    	<p><%= site.id %></p>
-    </div>
-<% end %>
+<%- model_class = Site -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th> URL </th>
+      <th> Created by </th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sites.each do |site| %>
+      <tr>
+        <td><%= link_to site.id, site_path(site) %></td>
+        <td><%= link_to(site_url(site).to_s, site) %></td>
+        <td><%= "User#{site.id}" %></td>
+        <td><%=l site.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

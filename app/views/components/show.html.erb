@@ -1,19 +1,25 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Component -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Data:</strong>
-  <%= @component.data %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:type) %>:</strong></dt>
+  <dd><%= @component.type %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:data) %>:</strong></dt>
+  <dd><%= @component.data %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:position) %>:</strong></dt>
+  <dd><%= @component.position %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:site_id) %>:</strong></dt>
+  <dd><%= @component.site_id %></dd>
+</dl>
 
-<p>
-  <strong>Position:</strong>
-  <%= @component.position %>
-</p>
-
-<p>
-  <strong>Site:</strong>
-  <%= @component.site %>
-</p>
-
-<%= link_to 'Edit', edit_component_path(@component) %> |
-<%= link_to 'Back', components_path %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              components_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_component_path(@component), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              component_path(@component),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

@@ -3,6 +3,28 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .sites {
+  div {
+    &.site {
+     box-shadow: #999 1px 1px 3px;
+     margin: auto;
+     width: 75%;
+     height: 75%;
+     min-height: 700px;
+     display: block;
+     position: relative;
+     overflow: hidden;
+   } 
+   &.component {
+     box-shadow: #999 1px 1px 3px;
+     margin: auto;
+     padding-top: 40px;
+     width: 100%;
+     min-height: 50px;
+     display: block;
+     position: relative;
+     overflow: hidden;
+   }
+  }
   table {
     border-collapse: collapse;
   }

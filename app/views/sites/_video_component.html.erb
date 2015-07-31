@@ -1,14 +1,11 @@
-<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
-      	
-      	<td class="list_description">
-      		<dl>
-      			<dt><%= component.type %></dt>
-      		    <dd><%= component.data %></dd>
-      		</dl>
-      	</td>
-      	
-        <td class="list_actions">
-        	<%= link_to 'Edit', edit_component_path(component) %><br/>
-            <%= link_to 'Destroy', component_path(component), method: :delete, data: { confirm: 'Are you sure?' } %><br/>
-        </td>
-      </tr>
+<div class="component">
+	<div style="text-align: center">
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/z0JT3605WDw" frameborder="0" allowfullscreen>
+			
+		</iframe>
+    </div><br/>
+
+    <%= link_to 'Edit', edit_component_path(component) %><br/>
+    <%= link_to 'Destroy', component_path(component), method: :delete, data: { confirm: 'Are you sure?' } %><br/>
+</div>
+ 

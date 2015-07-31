@@ -14,7 +14,7 @@ Site.create!()
 Site.create!()
 Site.create!()
 
-Site.first.components << VideoComponent.create!(data: "data", position: 5)
+Site.first.components << VideoComponent.create!(data: "data", position: 1)
 Site.first.components << TextComponent.create!(data: "data", position: 2)
 Site.first.components << RatingComponent.create!(data: "data", position: 3)
 Site.first.components << GalleryComponent.create!(data: "data", position: 4)
