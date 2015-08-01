@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+#jQuery-ui
+gem 'jquery-ui-rails'
 #Bootstrap
 gem "twitter-bootstrap-rails"
 #MarkDown

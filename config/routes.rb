@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   resources :components do
     member do
-      post 'edit' => 'components#update', as: 'edit_component'
+      post 'edit' => 'components#update', as: 'edit'
     end
     
     collection do    
-      post 'new' => 'components#create', as: 'new_components'
+      post 'new' => 'components#create', as: 'new'
     end
   end
 

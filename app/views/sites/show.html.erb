@@ -10,10 +10,26 @@
 				<td><h3>Available elements:</h3></td>
 				<td>
 					<ul class="nav navbar-nav">
-						<li><h3><span class="label label-primary"> Text </span></h3></li>
-			            <li><h3><span class="label label-success"> Video </span></h3></li>
-			            <li><h3><span class="label label-info"> Rating </span></h3></li>
-			            <li><h3><span class="label label-warning"> Gallery </span></h3></li>
+						<li style="margin-left: 10px">
+							<%= link_to t('.text', :default => t("text")),
+							components_path(component: { site_id: @site.id, type: "TextComponent", data: "", position: 5 }),
+							 :method => 'post', :class => 'btn btn-default' %>
+						</li>
+			            <li style="margin-left: 10px">
+			            	<%= link_to t('.video', :default => t("video")),
+							components_path(component: { site_id: @site.id, type: "VideoComponent", data: "", position: 5 }),
+							 :method => 'post', :class => 'btn btn-default' %>
+						</li>
+			            <li style="margin-left: 10px">
+			            	<%= link_to t('.rating', :default => t("rating")),
+							components_path(component: { site_id: @site.id, type: "RatingComponent", data: "", position: 5 }),
+							 :method => 'post', :class => 'btn btn-default' %>
+						</li>
+			            <li style="margin-left: 10px">
+			            	<%= link_to t('.gallery', :default => t("gallery")),
+							components_path(component: { site_id: @site.id, type: "GalleryComponent", data: "", position: 5 }),
+							 :method => 'post', :class => 'btn btn-default' %>
+						</li>
         			</ul>
         		</td>
         	</tr>
