@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :components do
     member do
       post 'edit' => 'components#update', as: 'edit'
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
   root to: 'catalog#index', as: 'catalog'
   
   resources :sites
+  resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

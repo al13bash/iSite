@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'devise'
 #Cloudinary
 gem 'cloudinary'
 #jQuery-ui

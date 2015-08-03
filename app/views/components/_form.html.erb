@@ -21,6 +21,7 @@
       <%= @component.type.gsub('Component', '') %>
     </div>
   </div>
+  
   <div class="control-group">
     <%= f.label :data, :class => 'control-label' %>
     <div class="controls">
@@ -28,6 +29,7 @@
     </div>
     <%= error_span(@component[:data]) %>
   </div><br/>
+  
   <div class="control-group">
     <%= f.label :position, :class => 'control-label' %>
     <div class="controls">
