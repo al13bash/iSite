@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20150729195514) do
 
   create_table "components", force: true do |t|
     t.string   "type"
-    t.string   "data"
+    t.text     "data"
     t.integer  "position"
     t.integer  "site_id"
     t.datetime "created_at"

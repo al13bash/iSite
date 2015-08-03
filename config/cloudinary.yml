@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: al13bash
+  api_key: '651974112379242'
+  api_secret: vBWvo3jPqwIgePtw3zu5g6pNdqw
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: al13bash
+  api_key: '651974112379242'
+  api_secret: vBWvo3jPqwIgePtw3zu5g6pNdqw
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: al13bash
+  api_key: '651974112379242'
+  api_secret: vBWvo3jPqwIgePtw3zu5g6pNdqw
+  enhance_image_tag: true
+  static_image_support: false

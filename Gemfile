@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+#Cloudinary
+gem 'cloudinary'
 #jQuery-ui
 gem 'jquery-ui-rails'
 #Bootstrap
