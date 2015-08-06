@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 
+gem 'ratyrate'
+
 gem 'devise'
+
 #Cloudinary
 gem 'cloudinary'
 #jQuery-ui

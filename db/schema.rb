@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20150803145835) do
   add_index "components", ["site_id"], name: "index_components_on_site_id", using: :btree
 
   create_table "sites", force: true do |t|
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

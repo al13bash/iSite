@@ -5,24 +5,18 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:type) %></th>
       <th><%= model_class.human_attribute_name(:data) %></th>
-      <th><%= model_class.human_attribute_name(:position) %></th>
       <th><%= model_class.human_attribute_name(:site_id) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @components.each do |component| %>
       <tr>
-        <td><%= link_to component.id, component_path(component) %></td>
         <td><%= component.type %></td>
         <td><%= component.data %></td>
-        <td><%= component.position %></td>
-        <td><%= component.site_id %></td>
-        <td><%=l component.created_at %></td>
+        <td><%= link_to(site_url(component.site_id).to_s, site_path(component.site_id)) %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_component_path(component), :class => 'btn btn-default btn-xs' %>
@@ -36,7 +30,3 @@
     <% end %>
   </tbody>
 </table>
-
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_component_path,
-            :class => 'btn btn-primary' %>

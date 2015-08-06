@@ -17,7 +17,7 @@
       <tr>
         <td><%= link_to site.id, site_path(site) %></td>
         <td><%= link_to(site_url(site).to_s, site) %></td>
-        <td><%= @user %></td>
+        <td><%= @user.username %></td>
         <td><%=l site.created_at %></td>
       </tr>
     <% end %>
@@ -27,9 +27,7 @@
 <%= link_to t('.back', :default => t("helpers.links.back")),
               users_path, :class => 'btn btn-default'  %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_user_path(@user), :class => 'btn btn-default' %>
-<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              user_path(@user),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
+              edit_user_registration_path, :class => 'btn btn-default' %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+              sites_path(:site => { :user_id => @user.id }), :method => 'post',
+              :class => 'btn btn-primary' %>

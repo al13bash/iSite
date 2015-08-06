@@ -1,4 +1,6 @@
 class SitesController < ApplicationController
+  before_action :authenticate_user!, except: [:show]
+  
   before_action :set_site, only: [:show, :edit, :update, :destroy]
 
   # GET /sites
@@ -28,7 +30,7 @@ class SitesController < ApplicationController
 
     respond_to do |format|
       if @site.save
-        format.html { redirect_to @site, notice: 'Site was successfully created.' }
+        format.html { redirect_to site_path(@site.id), notice: 'Site was successfully created.' }
         format.json { render :show, status: :created, location: @site }
       else
         format.html { render :new }
@@ -40,9 +42,14 @@ class SitesController < ApplicationController
   # PATCH/PUT /sites/1
   # PATCH/PUT /sites/1.json
   def update
+    @site.components.each do |component|
+      component.position = params[:position][component.id.to_s]
+      component.save
+    end
+    
     respond_to do |format|
       if @site.update(site_params)
-        format.html { redirect_to @site, notice: 'Site was successfully updated.' }
+        format.html { redirect_to site_path(@site.id), notice: 'Site was successfully updated.' }
         format.json { render :show, status: :ok, location: @site }
       else
         format.html { render :edit }
@@ -69,6 +76,6 @@ class SitesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def site_params
-      params[:site]
+      params.require(:site).permit(:id, :user_id)
     end
 end

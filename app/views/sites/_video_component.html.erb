@@ -1,11 +1,6 @@
-<div class="component">
-	<div style="text-align: center">
-		<iframe width="560" height="315" src="https://www.youtube.com/embed/<%= component.data[-11..-1] %>" frameborder="0" allowfullscreen>
+<div style="text-align: center">
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/<%= component.data[-11..-1] %>" frameborder="0" allowfullscreen>
 			
-		</iframe>
-    </div><br/>
-
-    <%= link_to 'Edit', edit_component_path(component) %><br/>
-    <%= link_to 'Destroy', component_path(component), method: :delete, data: { confirm: 'Are you sure?' } %><br/>
-</div>
+	</iframe>
+</div><br/>
  

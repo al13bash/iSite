@@ -2,4 +2,67 @@
 <div class="page-header">
   <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
 </div>
-<%= render :partial => 'form' %>
+
+<%= javascript_include_tag "sites" %>
+
+<div class="col-lg-12">
+	<% if user_signed_in? %>
+	<div class="well sidebar-nav">
+		<table>
+			<tr>
+				<td><h3>Available elements:</h3></td>
+				<td>
+					<ul class="nav navbar-nav">
+						<li style="margin-left: 10px">
+							<%= link_to t('.text', :default => t("text")),
+							components_path(component: { site_id: @site.id, type: "TextComponent", data: "", position: 0 }),
+							 :method => 'post', :class => 'btn btn-default' %>
+						</li>
+			            <li style="margin-left: 10px">
+			            	<%= link_to t('.video', :default => t("video")),
+							components_path(component: { site_id: @site.id, type: "VideoComponent", data: "", position: 0 }),
+							 :method => 'post', :class => 'btn btn-default' %>
+						</li>
+			            <li style="margin-left: 10px">
+			            	<%= link_to t('.rating', :default => t("rating")),
+							components_path(component: { site_id: @site.id, type: "RatingComponent", data: "", position: 0 }),
+							 :method => 'post', :class => 'btn btn-default' %>
+						</li>
+			            <li style="margin-left: 10px">
+			            	<%= link_to t('.gallery', :default => t("gallery")),
+							components_path(component: { site_id: @site.id, type: "GalleryComponent", data: "", position: 0 }),
+							 :method => 'post', :class => 'btn btn-default' %>
+						</li>
+        			</ul>
+        		</td>
+        	</tr>
+        </table>
+    </div>
+    <% end %>
+</div>
+
+<form action="/sites/<%= @site.id %>" method="post">
+	<input name="_method" type="hidden" value="put" />
+	<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+	<dl class="dl-horizontal">
+		<div class="site" id="edit">
+			<% @site.components.order(:position).each do |component| %>
+			<div class="component">
+				<%= render partial: "#{component.type.tableize.singularize}", locals: {component: component} %>
+				
+				<input type="hidden" name="position[<%= component.id %>]" value="<%= component.position %>">
+				
+			    <%= link_to 'Edit', edit_component_path(component) %><br/>
+	            <%= link_to 'Destroy', component_path(component), method: :delete, data: { confirm: 'Are you sure?' } %><br/>
+	        </div>
+			<% end %>
+		</div>
+	</dl>
+	
+	<input type="hidden" name="site[id]" value="<%= @site.id %>">
+	<input type="hidden" name="site[user_id]" value="<%= @site.user_id %>">
+	
+	<%= submit_tag "Save", :class => 'btn btn-primary' %>
+	<%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+         	   site_path(@site), :class => 'btn btn-default' %>
+</form>

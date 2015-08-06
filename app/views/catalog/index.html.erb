@@ -5,19 +5,15 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th> URL </th>
       <th> Created by </th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
     </tr>
   </thead>
   <tbody>
     <% @sites.each do |site| %>
       <tr>
-        <td><%= link_to site.id, site_path(site) %></td>
         <td><%= link_to(site_url(site).to_s, site) %></td>
-        <td><%= "User#{site.id}" %></td>
-        <td><%=l site.created_at %></td>
+        <td><%= site.user.username %></td>
       </tr>
     <% end %>
   </tbody>
