@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'cancancan'
+
 gem 'ratyrate'
 
 gem 'devise'

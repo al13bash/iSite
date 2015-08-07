@@ -15,7 +15,7 @@
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
               catalog_path, :class => 'btn btn-default'  %>
-<% if user_signed_in? %>
+<% if can? :update, @site %>
 	<%= link_to t('.edit', :default => t("helpers.links.edit")),
 	              edit_site_path(@site), :class => 'btn btn-primary' %>
 	<%= link_to t('.destroy', :default => t("helpers.links.destroy")),

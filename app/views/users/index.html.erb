@@ -14,7 +14,7 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= user.email %></td>
-        <td><%= user.username %></td>
+        <td><%= link_to user.username, user_path(user) %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_user_registration_path, :class => 'btn btn-default btn-xs' %>

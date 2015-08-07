@@ -1,33 +1,33 @@
 <%- model_class = User -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+  <h1><%= @user.username %></h1>
 </div>
 
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th> URL </th>
-      <th> Created by </th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= model_class.human_attribute_name(:updated_at) %></th>
     </tr>
   </thead>
   <tbody>
     <% @user.sites.each do |site| %>
       <tr>
-        <td><%= link_to site.id, site_path(site) %></td>
         <td><%= link_to(site_url(site).to_s, site) %></td>
-        <td><%= @user.username %></td>
         <td><%=l site.created_at %></td>
+        <td><%=l site.updated_at %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
-              users_path, :class => 'btn btn-default'  %>
-<%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_user_registration_path, :class => 'btn btn-default' %>
-<%= link_to t('.new', :default => t("helpers.links.new")),
-              sites_path(:site => { :user_id => @user.id }), :method => 'post',
-              :class => 'btn btn-primary' %>
+              catalog_path, :class => 'btn btn-default'  %>
+<% if can? :update, @user %>
+	<%= link_to t('.edit', :default => t("helpers.links.edit")),
+	              edit_user_registration_path, :class => 'btn btn-default' %>
+	<%= link_to t('.new', :default => t("helpers.links.new")),
+	              sites_path(:site => { :user_id => @user.id }), :method => 'post',
+	              :class => 'btn btn-primary' %>
+<% end %>

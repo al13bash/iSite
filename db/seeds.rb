@@ -6,15 +6,15 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Site.delete_all
-
-Site.create!()
-Site.create!()
-Site.create!()
-Site.create!()
-Site.create!()
-
-Site.first.components << VideoComponent.create!(data: "z0JT3605WDw", position: 1)
-Site.first.components << TextComponent.create!(data: "# **Text**", position: 2)
-Site.first.components << RatingComponent.create!(data: "data", position: 3)
-Site.first.components << GalleryComponent.create!(data: "mytag", position: 4)
+# Site.delete_all
+#
+# Site.create!()
+# Site.create!()
+# Site.create!()
+# Site.create!()
+# Site.create!()
+#
+# Site.first.components << VideoComponent.create!(data: "z0JT3605WDw", position: 1)
+# Site.first.components << TextComponent.create!(data: "# **Text**", position: 2)
+# Site.first.components << RatingComponent.create!(data: "data", position: 3)
+# Site.first.components << GalleryComponent.create!(data: "mytag", position: 4)

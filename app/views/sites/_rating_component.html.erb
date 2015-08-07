@@ -1,3 +1,17 @@
-
+<div style="margin: auto" class="row">
+  <div class="small-2 large-2 columns">
+    <%= imdb_style_rating_for @site, current_user%>
+  </div>
+  <br>
+  <div class="small-2 large-4 columns">
+    <% if current_user %>
+      Text: <%= rating_for @site, "text" %>
+      <br>
+      Video: <%= rating_for @site, "video" %>
+      <br>
+      Gallery: <%= rating_for @site, "gallery" %>
+    <% end %>
+  </div>
+</div>
 	
       

@@ -12,8 +12,8 @@
   <tbody>
     <% @sites.each do |site| %>
       <tr>
-        <td><%= link_to(site_url(site).to_s, site) %></td>
-        <td><%= site.user.username %></td>
+        <td><%= link_to site_url(site).to_s, site %></td>
+        <td><%= link_to site.user.username, user_path(site.user.id) %></td>
       </tr>
     <% end %>
   </tbody>

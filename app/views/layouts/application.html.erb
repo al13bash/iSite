@@ -55,7 +55,7 @@
         </button>
         <a class="navbar-brand" href="<%= catalog_url %>">iSite</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
-          <% if user_signed_in? %>
+          <% if can? :manage, :all %>
 	          <ul class="nav navbar-nav">
 	            <li><%= link_to "Sites", sites_path  %></li>
 	            <li><%= link_to "Components", components_path %></li>

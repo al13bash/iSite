@@ -1,7 +1,7 @@
 <% tags = component.data.split(" ") %>
 <% resources = Array.new %>
 <% tags.each do |tag| %>
-<% temp = Cloudinary::Api.resources_by_tag(tag, :tags => true) %>
+<% temp = Cloudinary::Api.resources_by_tag(tag) %>
 <% resources.concat(temp.first.last)%>
 <% end %>
 
