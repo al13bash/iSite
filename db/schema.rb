@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20150807163609) do
     t.datetime "updated_at"
   end
 
+  add_index "components", ["data"], name: "index_components_on_data", length: {"data"=>10}, using: :btree
   add_index "components", ["site_id"], name: "index_components_on_site_id", using: :btree
 
   create_table "overall_averages", force: true do |t|
@@ -72,6 +73,9 @@ ActiveRecord::Schema.define(version: 20150807163609) do
     t.datetime "updated_at"
   end
 
+  add_index "sites", ["id"], name: "index_sites_on_id", unique: true, using: :btree
+  add_index "sites", ["user_id"], name: "index_sites_on_user_id", using: :btree
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -96,5 +100,6 @@ ActiveRecord::Schema.define(version: 20150807163609) do
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
 end

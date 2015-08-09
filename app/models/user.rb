@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
          
   validates :username, presence: true, uniqueness: true
          
-  has_many :sites
+  has_many :sites, dependent: :destroy
   
   before_save :set_default_role
   

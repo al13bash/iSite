@@ -1,12 +1,21 @@
+<div class="search">
+	<form action="/catalog/search" method="post">
+		<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <input type="text" id="search" class="form-control input-sm" maxlength="64" name="search" />
+    	<%= submit_tag t('.search'), :class => 'btn btn2 btn-primary' %>
+    </form>
+</div>
+
 <%- model_class = Site -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
+
 <table class="table table-striped">
   <thead>
     <tr>
-      <th> URL </th>
-      <th> Created by </th>
+      <th><%=t '.site'%></th>
+      <th><%=t '.created by' %></th>
     </tr>
   </thead>
   <tbody>

@@ -10,7 +10,7 @@
 	<div class="well sidebar-nav">
 		<table>
 			<tr>
-				<td><h3>Available elements:</h3></td>
+				<td><h3><%=t '.add'%></h3></td>
 				<td>
 					<ul class="nav navbar-nav">
 						<li style="margin-left: 10px">
@@ -52,8 +52,11 @@
 				
 				<input type="hidden" name="position[<%= component.id %>]" value="<%= component.position %>">
 				
-			    <%= link_to 'Edit', edit_component_path(component) %><br/>
-	            <%= link_to 'Destroy', component_path(component), method: :delete, data: { confirm: 'Are you sure?' } %><br/>
+			    <%= link_to t('.edit', :default => t("helpers.links.edit")), 
+			                edit_component_path(component) %><br/>
+	            <%= link_to t('.destroy', :default => t("helpers.links.destroy")), 
+	                        component_path(component), method: :delete, 
+	                        :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) } %><br/>
 	        </div>
 			<% end %>
 		</div>
@@ -62,7 +65,7 @@
 	<input type="hidden" name="site[id]" value="<%= @site.id %>">
 	<input type="hidden" name="site[user_id]" value="<%= @site.user_id %>">
 	
-	<%= submit_tag "Save", :class => 'btn btn-primary' %>
+	<%= submit_tag t('.save'), :class => 'btn btn-primary' %>
 	<%= link_to t('.cancel', :default => t("helpers.links.cancel")),
          	   site_path(@site), :class => 'btn btn-default' %>
 </form>

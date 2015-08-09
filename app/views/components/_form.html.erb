@@ -15,7 +15,7 @@
     </div>
   <% end %>
   
-  <b>Component type</b>
+  <b><%=t '.type'%></b>
   <div class="panel panel-default">
     <div class="panel-body">
       <%= @component.type.gsub('Component', '') %>
@@ -23,14 +23,14 @@
   </div>
   
   <div class="control-group">
-    <%= f.label :data, :class => 'control-label' %>
+    <%= f.label t('.data'), :class => 'control-label' %>
     <div class="controls">
       <%= f.text_area :data, :class => 'form-control' %>
     </div>
     <%= error_span(@component[:data]) %>
   </div><br/>
 
-  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= f.submit t('.save'), :class => 'btn btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
             edit_site_path(@component.site_id), :class => 'btn btn-default' %>
 

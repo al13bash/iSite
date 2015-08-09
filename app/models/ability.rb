@@ -13,6 +13,9 @@ class Ability
         end
         can :show, User
         can [:update, :destroy], User, :id => user.id
+      else
+        can :show, Site
+        can :show, User
       end
     end
     

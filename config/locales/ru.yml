@@ -1,0 +1,110 @@
+ru:
+  
+  devise:
+    confirmations:
+      new:
+        title: "Повторная посылка инструкций по подтверждению"
+        confirm: "Послать инструкции"
+    passwords:
+      new:
+        title: "Забыли пароль?"
+        reset: "Отправить мне инструкции по смене пароля"
+    sessions:
+      new:
+        title: "Вход"
+        log in: "Вход"
+        remember: "Запомнить"
+    registrations:
+      edit:
+        title: "Редактирование Пользователя"
+        username: "Имя пользователя"
+        email: "Электронная почта"
+        password: "Пароль"
+        message1: "не заполняйте, если вы не хотите менять пароль"
+        password_confirmation: "Подтверждение пароля"
+        current_password: "Текущий пароль"
+        message2: "нам необходим ваш текущий пароль, чтобы применить изменения"
+        update: "Обновить"
+        cancel_account: "Удалить мой аккаунт"
+        back: "Назад"
+      new:
+        title: "Регистрация"
+        message: " символов минимум"
+        log in: "Вход"
+        sign up: "Регистрация"
+    shared:
+      links:
+        log in: "Вход"
+        sign up: "Регистрация"
+        password: "Забыли пароль?"
+        instructions: "Не получили письмо с подтверждением?"
+  
+  layouts:
+    application:
+      sites: "Сайты"
+      users: "Пользователи"
+      components: "Компоненты"
+      profile: "Профиль"
+      log out: "Выход"
+      log in: "Вход"
+      sign up: "Регистрация"
+      
+  catalog:
+    index:
+      site: "Сайт"
+      created by: "Автор"
+      title: "Сайты"
+      search: "Поиск"
+          
+  components:
+    create:
+      created: 'Компонент был успешно создан.'
+    update: 
+      updated: 'Компонент был успешно обновлен.'
+    destroy:
+      destroyed: 'Компонент был успешно удален.'
+    index:
+      site: "Сайт"
+      title: "Компоненты"
+      type: "Тип"
+      data: "Данные"
+    edit:
+      title: "Редактирование Компонента"
+    form:
+      type: "Тип компонента"
+      save: "Сохранить"
+      data: "Данные"
+      
+  sites:
+    create:
+      created: 'Сайт был успешно создан.'
+    update: 
+      updated: 'Сайт был успешно обновлен.'
+    destroy:
+      destroyed: 'Сайт был успешно удален.'
+    index:
+      site: "Сайт"
+      title: "Сайты"
+      created by: "Автор"
+    show:
+      title: "Сайт"
+    edit:
+      title: "Редактирование Сайта"
+      save: "Сохранить"
+      add: "Добавить:"
+      text: "Текст"
+      video: "Видео"
+      rating: "Рейтинг"
+      gallery: "Галерею"
+    rating_component:
+      text: "Текст"
+      video: "Видео"
+      gallery: "Галерея"
+      
+  users:
+    index:
+      title: "Пользователи"
+      email: "Эл.почта"
+      username: "Имя пользователя"
+    show:
+      sites: "Сайты"

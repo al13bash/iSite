@@ -1,22 +1,27 @@
-Rails.application.routes.draw do
-  post '/rate' => 'rater#create', :as => 'rate'
-  devise_for :users
-  resources :components do
-    member do
-      post 'edit' => 'components#update', as: 'edit'
+Rails.application.routes.draw do  
+  scope '(:locale)' do
+    devise_for :users
+    
+    resources :sites
+    resources :users
+    
+    resources :components do
+      member do
+        post 'edit' => 'components#update', as: 'edit'
+      end
+      
+      collection do    
+        post 'new' => 'components#create', as: 'new'
+      end
     end
     
-    collection do    
-      post 'new' => 'components#create', as: 'new'
-    end
-  end
-
-  get 'catalog/index'
-
-  root to: 'catalog#index', as: 'catalog'
+    post '/rate' => 'rater#create', :as => 'rate'
   
-  resources :sites
-  resources :users
+    get 'catalog/index'
+    post 'catalog/search'
+  
+    root to: 'catalog#index', as: 'catalog'
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

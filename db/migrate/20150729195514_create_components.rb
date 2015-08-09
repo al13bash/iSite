@@ -8,5 +8,7 @@ class CreateComponents < ActiveRecord::Migration
 
       t.timestamps
     end
+    
+    add_index :components, :data, length: 10
   end
 end

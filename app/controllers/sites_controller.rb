@@ -1,14 +1,13 @@
 class SitesController < ApplicationController
   before_action :authenticate_user!, except: [:show]
   
-  load_and_authorize_resource
-  
   before_action :set_site, only: [:show, :edit, :update, :destroy]
 
   # GET /sites
   # GET /sites.json
   def index
     @sites = Site.all
+    authorize! :index, @site
   end
 
   # GET /sites/1
@@ -19,10 +18,12 @@ class SitesController < ApplicationController
   # GET /sites/new
   def new
     @site = Site.new
+    authorize! :new, @site
   end
 
   # GET /sites/1/edit
   def edit
+    authorize! :edit, @site
   end
 
   # POST /sites
@@ -32,13 +33,14 @@ class SitesController < ApplicationController
 
     respond_to do |format|
       if @site.save
-        format.html { redirect_to site_path(@site.id), notice: 'Site was successfully created.' }
+        format.html { redirect_to site_path(@site.id), notice: t('.created') }
         format.json { render :show, status: :created, location: @site }
       else
         format.html { render :new }
         format.json { render json: @site.errors, status: :unprocessable_entity }
       end
     end
+    authorize! :create, @site
   end
 
   # PATCH/PUT /sites/1
@@ -51,13 +53,14 @@ class SitesController < ApplicationController
     
     respond_to do |format|
       if @site.update(site_params)
-        format.html { redirect_to site_path(@site.id), notice: 'Site was successfully updated.' }
+        format.html { redirect_to site_path(@site.id), notice: t('.updated') }
         format.json { render :show, status: :ok, location: @site }
       else
         format.html { render :edit }
         format.json { render json: @site.errors, status: :unprocessable_entity }
       end
     end
+    authorize! :update, @site
   end
 
   # DELETE /sites/1
@@ -65,9 +68,10 @@ class SitesController < ApplicationController
   def destroy
     @site.destroy
     respond_to do |format|
-      format.html { redirect_to sites_url, notice: 'Site was successfully destroyed.' }
+      format.html { redirect_to sites_url, notice: t('.destroyed') }
       format.json { head :no_content }
     end
+    authorize! :destroy, @site
   end
 
   private

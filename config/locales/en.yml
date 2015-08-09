@@ -20,4 +20,109 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  
+  devise:
+    confirmations:
+      new:
+        title: "Resend confirmation instructions"
+        confirm: "Resend instructions"
+    passwords:
+      new:
+        title: "Forgot your password?"
+        reset: "Send me reset password instructions"
+    sessions:
+      new:
+        title: "Log in"
+        log in: "Log in"
+        remember: "Remember me"
+    registrations:
+      edit:
+        title: "Edit User"
+        username: "Username"
+        email: "Email"
+        password: "Password"
+        message1: "leave blank if you don't want to change it"
+        password_confirmation: "Password confirmation"
+        current_password: "Current password"
+        message2: "we need your current password to confirm your changes"
+        update: "Update"
+        cancel_account: "Cancel my account"
+        back: "Back"
+      new:
+        title: "Sign up"
+        message: " characters minimum"
+        log in: "Log in"
+        sign up: "Sign up"
+    shared:
+      links:
+        log in: "Log in"
+        sign up: "Sign up"
+        password: "Forgot your password?"
+        instructions: "Didn't receive confirmation instructions?"
+        
+  layouts:
+    application:
+      sites: "Sites"
+      users: "Users"
+      components: "Components"
+      profile: "Profile"
+      log out: "Log out"
+      log in: "Log in"
+      sign up: "Sign up"
+      
+  catalog:
+    index:
+      site: "Site"
+      created by: "Created by"
+      title: "Sites"
+      search: "Search"
+      
+  components:
+    create:
+      created: 'Component was successfully created.'
+    update: 
+      updated: 'Component was successfully updated.'
+    destroy:
+      destroyed: 'Component was successfully destroyed.'
+    index:
+      site: "Site"
+      title: "Components"
+      type: "Type"
+      data: "Data"
+    form:
+      type: "Component type"
+      save: "Save"
+      data: "Data"
+      
+  sites:
+    create:
+      created: 'Site was successfully created.'
+    update: 
+      updated: 'Site was successfully updated.'
+    destroy:
+      destroyed: 'Site was successfully destroyed.'
+    index:
+      site: "Site"
+      title: "Sites"
+      created by: "Created by"
+    show:
+      title: "Site"
+    edit:
+      add: "Add:"
+      save: "Save"
+      text: "Text"
+      video: "Video"
+      rating: "Rating"
+      gallery: "Gallery"
+    rating_component:
+      text: "Text"
+      video: "Video"
+      gallery: "Gallery"
+      
+  users:
+    index:
+      title: "Users"
+      email: "Email"
+      username: "Username"
+    show:
+      site: "Site"
